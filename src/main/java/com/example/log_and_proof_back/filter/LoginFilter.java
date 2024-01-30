@@ -2,7 +2,7 @@ package com.example.log_and_proof_back.filter;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.log_and_proof_back.pojo.Result;
+import com.example.log_and_proof_back.model.pojo.Result;
 import com.example.log_and_proof_back.utils.JwtUtils;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
 import java.io.IOException;
 
 @Slf4j
-//@WebFilter("/*")
+@WebFilter("/*")
 public class LoginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {

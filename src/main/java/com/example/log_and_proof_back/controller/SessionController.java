@@ -1,9 +1,10 @@
 package com.example.log_and_proof_back.controller;
 
-import com.example.log_and_proof_back.pojo.Result;
+import com.example.log_and_proof_back.model.pojo.Result;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,5 +31,23 @@ public class SessionController {
             }
         }
         return Result.success(1,"success", new String[]{"aaa", "bbb"});
+    }
+
+    @GetMapping("/s1")
+    public Result session1(HttpSession session){
+        log.info("HttpSession-s1 : {}",session.hashCode());
+        session.setAttribute("loginUser","yourName");
+        return Result.success();
+    }
+    // 从HttpSession中获取值
+    @GetMapping("/s2")
+    public Result session2(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        log.info("HttpSession-s2 : {}",session.hashCode());
+
+        // 从session中获取值
+        Object loginUser = session.getAttribute("loginUser");
+        log.info("loginUser : {}",loginUser);
+        return Result.success();
     }
 }

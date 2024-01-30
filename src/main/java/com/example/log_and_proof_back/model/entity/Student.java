@@ -1,10 +1,11 @@
-package com.example.log_and_proof_back.pojo;
+package com.example.log_and_proof_back.model.entity;
 
 import lombok.Data;
 
 @Data
 public class Student {
-    private Integer sno;
+    private Integer sid;
+    private String sno;
     private String spass;
     private String sname;
     private String ssex;

@@ -1,7 +1,7 @@
 package com.example.log_and_proof_back.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.log_and_proof_back.pojo.Result;
+import com.example.log_and_proof_back.model.pojo.Result;
 import com.example.log_and_proof_back.utils.JwtUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
